@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>logs/info.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>logs/error.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!-- projectManage default level -->
+    <!-- com.bbrightway目录下的日志，输出级别为Info级别 -->
+    <logger name="com.bbrightway" level="DEBUG" />
+
+    <!-- spring 日志输出级别设置  -->
+    <logger name="org.springframework" level="INFO" />
+
+    <!--log4jdbc 输出级别 关闭时OFF -->
+    <!--仅仅记录 SQL 语句，会将占位符替换为实际的参数 -->
+    <logger name="jdbc.sqlonly" level="OFF" />
+    <!--记录sql执行的时间，可以分析耗时的sql语句 -->
+    <logger name="jdbc.sqltiming" level="INFO" />
+    <!-- <logger name="jdbc.sqltiming" level="WARN"/> -->
+    <!--#记录返回结果集信息 -->
+    <logger name="jdbc.resultsettable" level="OFF" />
+    <logger name="jdbc.resultset" level="OFF" />
+    <!--#记录数据库连接和释放信息，可记录当前的数据库连接数，便于诊断连接是否释放 -->
+    <logger name="jdbc.connection" level="OFF" />
+    <!--#记录除了ResultSet外的所有JDBC调用情况。一般不需要。 -->
+    <logger name="jdbc.audit" level="OFF" />
+
+    <root level="info">
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileInfoLog"/>
+        <appender-ref ref="fileErrorLog"/>
+    </root>
+</configuration>
