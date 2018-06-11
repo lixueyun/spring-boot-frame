@@ -24,7 +24,7 @@ import org.springframework.context.annotation.PropertySource;
  * @version 3.0
  */
 @Configuration
-@PropertySource(value = "classpath:druid.properties")
+//@PropertySource(value = "classpath:conf/${profiles-active}/druid.properties")//在yml中配置之后不需要此扫描路径
 public class DruidConfiguration {
 
     /**

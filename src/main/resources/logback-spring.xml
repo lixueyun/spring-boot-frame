@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
+    <!-- 日志输出目的地：控制台 ，使用ConsoleAppender类 -->
     <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>
-                %d - %msg%n
+                <!-- 日志格式化输出：%date表示日期，可以设置其他格式：%date{ISO8601}，%date{ISO8601} ，%date{dd
+				MMM yyyy ;HH:mm:ss.SSS} %thread： t / thread 输出产生日志的线程名。 %-5level：p / le /
+				level:输出日志级别。级别从左显示5个字符宽度，如果是从右边限制格式为%level5 ,左对齐使用"-" %logger{36}：表示logger名字最长36个字符,否则按照句点分割
+				，logger{length}输出日志的logger名，可有一个整形参数，功能是缩短logger名，设置为0表示只输入logger最右边。 %msg：输出应用程序提供的信息，可以使用m
+				或者 msg 或者 message，消息内容一样 %n：是换行符 -->
+                %date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%file:%line] - %msg%n
             </pattern>
         </layout>
     </appender>
@@ -16,7 +22,7 @@
         </filter>
         <encoder>
             <pattern>
-                %msg%n
+                %date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%file:%line] - %msg%n
             </pattern>
         </encoder>
         <!--滚动策略-->
@@ -33,7 +39,7 @@
         </filter>
         <encoder>
             <pattern>
-                %msg%n
+                %date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%file:%line] - %msg%n
             </pattern>
         </encoder>
         <!--滚动策略-->
