@@ -7,6 +7,7 @@
  */
 package com.bbrightway.user.domain.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.Date;
@@ -28,5 +29,6 @@ public class UserEntity {
 
     private int age;
 
+    @JSONField(format = "yyyy-MM-dd")
     private Date ctm;
 }

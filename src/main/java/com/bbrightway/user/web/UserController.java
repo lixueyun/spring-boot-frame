@@ -15,7 +15,6 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,18 +63,8 @@ public class UserController {
      */
     @ApiOperation(value="获取用户列表", notes="获取用户列表")
     @RequestMapping(value = "users", method = RequestMethod.GET)
-    public ResponseEntity<JsonResult> getUserList (){
-        JsonResult r = new JsonResult();
-        try {
-            List<UserEntity> users = userApplication.getUserList();
-            r.setResult(users);
-            r.setStatus("ok");
-        } catch (Exception e) {
-            r.setResult(e.getClass().getName() + ":" + e.getMessage());
-            r.setStatus("error");
-            e.printStackTrace();
-        }
-        return ResponseEntity.ok(r);
+    public List<UserEntity> getUserList (){
+        return userApplication.getUserList();
     }
 
     /**
