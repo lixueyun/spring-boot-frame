@@ -33,3 +33,12 @@ spring:
       # max-pool-prepared-statement-per-connection-size: 20
       # 合并多个DruidDataSource的监控数据
       # use-global-data-source-stat: true
+  application:
+    ## 注意这里是作为服务注册名称，在eureka注册中心注册这个名称，自动转化为全大写，之后调用服务用服务名调用
+    name: user-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
