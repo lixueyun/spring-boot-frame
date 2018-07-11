@@ -39,7 +39,8 @@
 		<!--springCloud eureka-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<version>1.4.5.RELEASE</version>
 		</dependency>
 
 		<!-- jdbcTemplate -->
@@ -79,7 +80,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
+			<version>1.18.0</version>
         </dependency>
 
         <!-- Swagger -->
