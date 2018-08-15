@@ -11,6 +11,12 @@ public class SpringBootFrameApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.println("test");
+	}
+
+	@Test
+	public void test(){
+		System.out.println("test");
 	}
 
 }
