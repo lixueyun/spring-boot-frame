@@ -13,6 +13,7 @@ public class SpringBootFrameApplicationTests {
 	public void contextLoads() {
         System.out.println("master");
 		System.out.println("test");
+		System.out.println("test11");
 	}
 
 	@Test
