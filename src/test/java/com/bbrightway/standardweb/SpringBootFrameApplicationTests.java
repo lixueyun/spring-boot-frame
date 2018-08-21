@@ -30,5 +30,6 @@ public class SpringBootFrameApplicationTests {
 		System.out.println(sdf.format(date));
 		System.out.println(sdf.format(date1));
 		System.out.println("test1");
+		System.out.println("test2");
 	}
 }
