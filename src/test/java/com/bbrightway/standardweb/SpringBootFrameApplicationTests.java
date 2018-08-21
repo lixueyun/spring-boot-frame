@@ -16,18 +16,7 @@ public class SpringBootFrameApplicationTests {
 
 	@Test
 	public void contextLoads() {
-        System.out.println("master");
-		System.out.println("test");
-		System.out.println("test11");
 	}
-
-	@Test
-	public void test(){
-		System.out.println("test");
-		System.out.println("master");
-	}
-
-
 
 	public static void main(String[] args) {
 		Date date = new Date(118,8,1);
